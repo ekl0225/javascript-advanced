@@ -49,3 +49,60 @@ console.log(isEven((n) => n % 2 === 0));
 // const sortedDown = numbers.sort(sortNumbersDown);
 
 // console.log(sortedDown);
+
+//for each
+const fruits = [`apple`, `strawberry`, `pear`];
+fruits.forEach((fruit) => console.log(fruit));
+fruits.forEach((fruit, index) => console.log(fruit, index));
+
+// some
+const hasStrawberry = fruits.some((fruit) => {
+  if (fruit === `strawberry`) {
+    return true;
+  } else {
+    return false;
+  }
+});
+console.log(`has strawberry:`, hasStrawberry);
+
+// reduce
+const someNumbers = [10, 20, 30, 40];
+const someNumbersTotal = someNumbers.reduce((acc, curr) => acc + curr);
+console.log(someNumbersTotal);
+
+const shop = [
+  {
+    name: "plot armor",
+    price: 9999,
+  },
+  {
+    name: "hero sword",
+    price: 4750,
+  },
+  {
+    name: "jobloop caps",
+    price: 15,
+  },
+  {
+    name: "Macguffin",
+    price: 1,
+  },
+];
+
+const priceTotal = shop.reduce((acc, curr) => acc + curr.price, 0);
+console.log(`to buy the entire shop, you need: ${priceTotal}`);
+
+// map- lager et ekstra array som man kan endre på, endrer ikke den orginale
+const newShop = shop.map((shopItem) => {
+  if (shopItem.name === "jobloop caps") {
+    return {
+      name: shopItem.name,
+      price: shopItem.price,
+    };
+  }
+  return {
+    name: shopItem.name,
+    price: shopItem.price + 10,
+  };
+});
+console.log(newShop);
